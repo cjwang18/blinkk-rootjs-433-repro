@@ -1,7 +1,33 @@
+import { RootCMSClient } from "@blinkk/root-cms";
+import { cmsPlugin } from "@blinkk/root-cms/plugin";
+
 import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const cmsClient = new RootCMSClient({
+    rootDir: "./",
+    plugins: [
+      cmsPlugin({
+        watch: false,
+        id: "test",
+        name: "test",
+        firebaseConfig: {
+          apiKey: "",
+          authDomain: "",
+          projectId: "",
+          storageBucket: "",
+          messagingSenderId: "",
+          appId: "",
+        },
+        gapi: {
+          apiKey: "",
+          clientId: "",
+        },
+      }),
+    ],
+  });
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
