@@ -8,6 +8,11 @@ const nextConfig = {
     // bundle these dependencies, and instead use native Node.js' `require` to load them in.
     // https://github.com/blinkk/rootjs/issues/426
     serverComponentsExternalPackages: ['@blinkk/root', '@blinkk/root-cms'],
+    // Next's build process can miss certain dependencies during its tracing process.
+    // https://github.com/blinkk/rootjs/issues/433#issuecomment-2415232516
+    outputFileTracingIncludes: {
+      '/': ['./node_modules/vite/**/*'],
+    },
   },
 };
 
